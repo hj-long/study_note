@@ -5,6 +5,21 @@
     相比于 webpack ，更快，提高效率
 
 
+js 模块的导入导出
+
+    - export与export default均可用于导出常量、函数、文件、模块等
+
+    - 在一个文件或模块中，export、import可以有多个，export default仅有一个
+
+    - 通过export方式导出，在导入时要加{ }，export default则不需要，并可以起任意名称
+
+(1) 输出单个值，使用export default
+
+(2) 输出多个值，使用export
+
+(3) export default与普通的export不要同时使用
+
+
 
 ## 二、vue3
 
@@ -171,8 +186,19 @@ const { name, age } = toRefs(obj)
 
 如果使用选项式的，就跟 vue2 的写法一样，如果使用 setup 写法，则在每个生命周期函数前面加上个 on
 
+***注意*** 如果使用 setup 写法，是没有了 beforeCreate 和 created 生命周期的，然后其他生命周期加上 on，例如：
 
+    onBeforeMount
 
+    onMounted
+
+    onBeforeUpdate
+    
+    onUpdated
+
+    onBeforeUnMount
+
+    onUnMounted
 
 
 #### 路由
@@ -499,11 +525,13 @@ router4.x
     ```
     import { defineAsyncComponent } from 'vue'
 
-    const Child = defineAsyncComponent(() => {
+    const Child = defineAsyncComponent(() => 
         import('./components/Child.vue')
-    })
+    )
 
     ```
+
+    ***注意*** 这个箭头函数是 () => 这样的，没有 {} ，表示 return 返回的意思，defineAsyncComponent 是要返回一个组件对象的！！
 
 - 使用场景
 
