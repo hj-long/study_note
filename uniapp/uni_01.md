@@ -128,39 +128,37 @@
 注意: 如果跳转到的是tabbar页面请用``switchTab``否则请用 ``navigateTo、redirectTo...``
 
 
-2. 组件
+2. 组件:
 
     - navigator 标签
 
+    ``< navigator open-type='navigate' url='/xx/xx'>点击跳转</ navigator>``
 
 
 
+#### 组件间传值
+
+1. 页面传值，通过 url 拼接传值
+
+    - A页面:传
+
+        uni.navigateTo({url:/pages/search/search?key=${this.key}&id=111})
+
+    - B页面:接
+        
+        onLoad( options ) {this.keyName = options.key;}
 
 
-### 小程序
+2. 其他传值方式
 
-微信小程序
+    - 组件：父传子 （和vue中一样）
 
-百度小程序
+    - 其他：
 
-支付宝小程序
+        A 组件 传：uniapp.$emit('方法1', A参数1);
 
-。。。。
-
-1. 需要兼容哪一款小程序，就要去下载那个小程序的开发者工具
-
-2. 去运行
+        B 组件 收：uniapp.$on('方法1', ( 参数1 ) => {
+            .....
+        })
 
 
-### web
-
-
-### app
-
-1. ios
-
-    不再支持基座调试 => 模拟器: xCode
-
-2. 安卓
-
-    安装 Android Stdio
