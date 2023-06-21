@@ -1,14 +1,12 @@
 ## 一、路由
 
-### 1. vue 的路由
-
-#### 1.1 概念
+### 1 概念
 
 路由 ---> 用于跳转页面的...反正是和页面打交道的
 
 vue 中的路由有官方库 Router，点击 [官网](https://router.vuejs.org/zh/) 查看更多内容
 
-#### vue + router是单页面应用(SPA)
+### vue + router是单页面应用(SPA)
 
 1. 单页面： 整个项目 ---> 只有一个html文件
 
@@ -16,7 +14,7 @@ vue 中的路由有官方库 Router，点击 [官网](https://router.vuejs.org/z
 
 3. 目前来说: 后台管理系统非常适合Vue这个框架来做
 
-#### 1.2 跳转页面
+### 2 跳转页面
 
 1. template写法: 使用 router库的组件 ``<router-link to="/about">About</router-link>`` 最后会转化为一个 a 标签
 
@@ -34,7 +32,7 @@ vue 中的路由有官方库 Router，点击 [官网](https://router.vuejs.org/z
 
     - router.back
 
-#### 1.3 路由模式
+### 3 路由模式
 
 1. history 模式
 
@@ -69,7 +67,7 @@ const router = new VueRouter({
     - history：比较简洁，美观，符合常规的 url 形式
 
 
-#### 1.4 router-link
+### 4 router-link
 
 1. router-link 写在template部分的，用来跳转页面的
 
@@ -97,11 +95,11 @@ const router = new VueRouter({
         <router-link to='/course' replace></router-link>
 
 
-#### 1.5 router-view
+### 5 router-view
 
 * ``<router-view />``  可以渲染路径匹配的视图组件
 
-### 2. 路由懒加载分包
+### 6 路由懒加载分包
 
 1. 使用一个箭头函数运行返回组件信息，就是懒加载，其中，/* webpackChunkName: "about" */ 添加了这个webpack配置注释之后，当我们打包代码时，webpack 会对路由信息进行分包，命名为 about_xxx.js，如果没有这个注释，js文件就会变成一堆数字
 
@@ -113,7 +111,7 @@ const router = new VueRouter({
 }
 ```
 
-### 3. 配置 404 页面
+### 7 配置 404 页面
 
 1. 匹配404页面实现的方法有很多，其中可以使用通配符 *
 
@@ -125,7 +123,7 @@ import Error from '@/views/Error.vue'
 }
 ```
 
-### 4. 子路由（项目不一定需要，但是可以方便管理）
+### 8 子路由（项目不一定需要，但是可以方便管理）
 
 {
     path: '/about',
@@ -142,7 +140,7 @@ import Error from '@/views/Error.vue'
 
 
 
-### 5. 动态路由
+### 9 动态路由
 
 1. 动态子路由
 
@@ -168,7 +166,7 @@ import Error from '@/views/Error.vue'
 ```
 
 
-### 6. 路由守卫
+### 10 路由守卫
 
 点击 [router官网](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html) 查看详细内容
 
@@ -188,7 +186,7 @@ const routes = [
     beforeEnter: (to, from) => {
       // reject the navigation
       return false
-  
+    }
   },
 ]
 
@@ -230,10 +228,9 @@ router.beforeEach((to, from, next) => {
 - 全局后置钩子：``router.afterEach((to, from) => {..})``
 
 
-
 ## 二、Vuex
 
-#### 什么是 Vuex ?
+### 什么是 Vuex ?
 
 是一种状态管理模式, [vuex官网](https://vuex.vuejs.org/zh/guide/)
 
@@ -380,7 +377,7 @@ router.beforeEach((to, from, next) => {
     - actions 是可以包含异步的
 
 
-#### Vuex 持久化存储
+### Vuex 持久化存储
 
 **注意: Vuex是一个集中式的状态管理工具，本身不是持久化存储，如果要实现持久化存储可以:
 

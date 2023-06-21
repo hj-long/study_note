@@ -1,10 +1,10 @@
-## 学习平台
+# 学习平台
 
-### 一、创建项目
+## 一、创建项目
 
-#### 使用vite创建项目 ``npm create vite@latest``
+### 使用vite创建项目 ``npm create vite@latest``
 
-#### 安装 setup 自动导入： ``npm install unplugin-auto-import -D``
+### 安装 setup 自动导入： ``npm install unplugin-auto-import -D``
 
 - 在 vite.config.js 中配置
 
@@ -24,7 +24,7 @@
 
 ```
 
-#### 安装 vue-router：``npm install vue-router@4``
+### 安装 vue-router：``npm install vue-router@4``
 
 - 新建文件夹 router/index.js
 
@@ -32,7 +32,7 @@
 
 - 在 mian.js 中配置
 
-#### 安装 elementUI-plus：``npm install element-plus --save``
+### 安装 elementUI-plus：``npm install element-plus --save``
 
 - 按需引入插件： ``npm install -D unplugin-vue-components``
 
@@ -58,7 +58,7 @@ export default defineConfig({
 ```
 
 
-#### 关于Vite不能使用require问题
+### 关于Vite不能使用require问题
 
   - 安装插件： ``npm i vite-plugin-require-transform --save-dev``
 
@@ -82,12 +82,12 @@ export default defineConfig({
 
 
 
-### 二、业务逻辑
+## 二、登陆逻辑
 
 登录方式有三种，无论哪种，在发送登陆请求成功之后，后端会返回一个 token，前端需要把这个 token 存储到 pinia 并且做持久化存储
 
 
-#### 账号密码登录
+### 账号密码登录
 
 1. 账号密码登录需要对登录的账号和密码进行一个加密，这里采用 ``crypto-js``
 
@@ -132,11 +132,11 @@ export function Encrypt(word) {
 
   然后就是调用账号密码登陆接口进行发送请求~
 
-#### 第三方登录
+### 第三方登录
 
 暂无。。
 
-#### 短信登录
+### 短信登录
 
 在短信登录时，需要使用滑块验证组件
 
@@ -147,12 +147,12 @@ export function Encrypt(word) {
 3. 手机号和验证码都正确后,调用短信登陆接口发送请求
 
 
-#### 退出登陆
+### 退出登陆
 
 1. 当用户点击退出登陆时，需要提示用户是否确定退出登陆，当用户确定退出登陆时，我们需要清除 pinia 中的 token 和用户信息，然后根据需要跳转页面
 
 
-#### 下载资料
+### 下载资料
 
 1. 点击下载按钮
 
@@ -209,10 +209,9 @@ export function Encrypt(word) {
 3. 降低服务器的负载
 
 
-#### 视频播放
+## 三、视频播放
 
 1. 需要下载[播放器插件](https://github.com/xdlumia/vue3-video-play )
-
 
 2. 设置视频防盗链
 
@@ -221,3 +220,25 @@ export function Encrypt(word) {
 3. 轮询更新播放记录
 
     通过每隔一段时间，发送视频播放记录的请求，记录用户播放的时长，当用户突然关闭视频再重新打开的时候能够自动从上次离开的时间继续播放
+
+
+## 四、支付流程
+
+通常先加入 商品 到购物车，然后在购物车页面点击 结算 按钮，跳转 订单页面 ，此时一般可以选择支付方式 微信 或者 支付宝，然后点击 支付，跳出 支付二维码，最后是完成支付
+
+1. 点击``去结算``按钮，调用``结算接口``，参数一般为 ``购物车的商品ID列表(商品id，数量)``，返回``支付方式``等参数，跳转 ``确认订单`` 页面
+
+2. 在订单页面，点击选择 ``支付方式（支付宝、微信等）``，这时候就以``商品列表、支付方式``等参数调用对应的``生成支付订单``接口，返回``订单号``、``支付二维码图片url``，最后，渲染显示 二维码 图片的``弹窗``即可
+
+3. 此时，每隔 2s 不断轮询``查询订单状态``接口，检查订单状态，如果返回 ``支付成功``，就可以结束轮询，进行下一步 ``跳转首页`` 等操作
+
+总结一下：
+
+  - 用户选择商品，加入购物车，在购物车页面点击进入结算页面
+
+  - 用户选择一种支付方式，前端发送支付请求，参数为：订单信息和支付方式
+
+  - 后端返回 支付页面 链接或者 支付二维码，前端将其展示
+
+  - 用户进行支付，前端轮询支付状态，成功则下一步
+
