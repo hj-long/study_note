@@ -445,7 +445,7 @@ router4.x
     
     - 当父组件的 name 的值为 A1 的时候，插槽内容在子组件的 A1 slot标签处渲染，name 的值为 A2 时，渲染在 A2 slot标签位置上
 
-- Teleport 传送
+- 传送 Teleport
 
     - 就是把组件里某段 dom 渲染到指定位置
 

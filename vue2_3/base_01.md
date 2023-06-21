@@ -75,9 +75,8 @@
 
     ``http://localhost:8080/`` 访问的是： ``http://localhost:8080/index.html``，也就是我们vue项目的 public 目录，因此我们可以在浏览器输入 ``http://localhost:8080/favicon.ico`` 访问到网页图标，但是一般不会这样使用，静态资源一般放服务器上，了解就好
 
-## 三、Vue 框架
 
-### Vue 的开发模式
+## 三、Vue 的开发模式
 
 1. 入口： public ==> index.html(main.js) ==> app.vue
 
@@ -134,7 +133,7 @@ export default {
 </style>
 ```
 
-### vue 部分指令
+## 四、vue 部分指令
 
 1. v-for: 循环指令，一般配合 key 来使用，key值必须唯一
 
@@ -185,7 +184,7 @@ export default {
     * v-if 创建和删除，不断地创建和删除元素，开销会大很多
 
 
-### vue 定义方法
+### 五、vue 定义方法
 
 1. 在 methods 中定义方法func， 在标签中使用 @事件名='func' 进行事件的绑定
 
@@ -218,7 +217,7 @@ export default {
     ```
 
 
-### vue 数据流
+### 六、vue 数据流
 
 1. data 函数返回的对象中的属性会成为当前组件的 Vue 实例的响应式数据：
     * 当 Vue 实例创建时，这些data中的属性会被添加到 Vue 实例上作为其属性，并且会在组件的生命周期中被使用
@@ -370,9 +369,9 @@ export default {
 * vue中如何实现单向绑定呢？v-bind
 
 
-### 生命周期
+## 七、生命周期
 
-#### 介绍
+### 介绍
 
 生命周期是指一个对象从诞生到死亡的一个过程，在vue中就是指一个组件从实例化诞生，到实例销毁的过程，具体看[官网](https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram)
 
@@ -382,7 +381,7 @@ export default {
 
 3. 生命周期的书写顺序可以随便写，不会影响执行顺序，因为 Vue 源码已经规定好了各个生命周期执行的顺序了。
 
-#### 什么情况下使用哪些生命周期
+### 什么情况下使用哪些生命周期
 
 * created ---> 请求接口，初始化时
 
@@ -415,5 +414,3 @@ this.$el : 当前组件的节点（dom，template模板下的dom）
     mounted:        data,el创建了
     ```
     因此，在涉及到dom操作的时候，要在 mounted 生命周期及之后进行
-
-2. 
