@@ -5,6 +5,7 @@
         "MVVM",
         "persistedstate",
         "prorender",
+        "unshift",
         "vuex"
     ]
 }
