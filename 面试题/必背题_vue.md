@@ -574,7 +574,7 @@ hashchange事件，就可以通过js来监听这个事件实现数据的加载�
 
 而 history 模式会刷新页面，会向后台服务器发送请求，如果后台没有定义这个路径的话，会返回404，因此需要后台配置重定向
 
-路由的使用方法：首先需要通过 npm 下载 vue-router，需要在 src/router/index.js 中引入 vue-router，需要配置包括 path、
+路由的使用方法：首先需要通过 npm 下载 vue-router，需要在 src/router/index.js 中引入 vue-router，需要配置路由表，包括 path、
 name、component、children 等属性
 
 然后还可以分为静态路由和动态路由：
