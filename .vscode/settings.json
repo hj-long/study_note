@@ -1,8 +1,17 @@
 {
     "cSpell.words": [
+        "concat",
+        "CSSOM",
+        "dblclick",
         "Echarts",
+        "eventloop",
         "hashchange",
         "jsencrypt",
+        "keydown",
+        "keypress",
+        "keyup",
+        "mousedown",
+        "mouseup",
         "MVVM",
         "persistedstate",
         "prorender",
