@@ -564,6 +564,7 @@ function flatten(arr) {
 ```
 function flatten(arr) {
   return arr.reduce((prev, next) => {
+    // 判断next是否为数组，是就递归，否则连接进结果数组里面
     return prev.concat(Array.isArray(next) ? flatten(next) : next);
   }, []);
 }
@@ -581,3 +582,12 @@ arr.flat(3); // 选择嵌套深度为3 ,得到 [1, 2, 3, 4, 5, 6]
 
 ## 28、【算法面试题】对象扁平化
 
+嵌套层级很深的对象，经过扁平化变成深度为1的对象，可以使用递归遍历，代码如下：
+
+```
+function flattenObj(obj) {
+    let result = {}
+    
+}
+
+```
