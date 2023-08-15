@@ -846,10 +846,13 @@ vue中的scoped属性可以隔离组件样式，它主要是通过 PostCss 这�
 echarts是一个著名的图表库，我们下载引入之后，要进行配置来使用，首先要创建一个 DOM 元素作为容器
 
 获取 DOM 元素来初始化 echarts 实例，然后在一个 option 对象里面进行配置，可以配置很多东西，
-比如图表的类型，标题title、颜色color、位置、边框、大小等等，还有图标纵坐标和横坐标的数据，
+比如 title 标题组件，可以配置 show、text 是否显示，显示文本等
 
-最后使用 myEcharts.setOption(option) 方法来绘制图表
+toolbox 工具栏，可以配置导出图片、数据视图、切换、缩放、是否显示等等
 
+然后还有 图表的类型 type，颜色color、位置、边框、大小、图表纵坐标和横坐标的数据等
+
+最后使用 myEcharts.setOption(option) 方法传入配置的options对象，来绘制整个图表
 
 
 ## 35、百度地图
